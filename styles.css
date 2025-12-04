@@ -16,6 +16,7 @@
     --spacing-sm: 15px;
     --spacing-md: 25px;
     --spacing-lg: 35px;
+    --spacing-xl: 45px;
     --sidebar-padding: 30px 25px;
     --main-padding: 35px 30px;
 
@@ -202,6 +203,10 @@ ul { list-style: none; }
     content: "•";
     color: var(--primary-accent);
     position: absolute; left: 0; font-weight: bold;
+}
+
+.mt-xl {
+    margin-top: var(--spacing-xl) !important;
 }
 
 /* --- 5. RESPONSIVE & PRINT --- */
