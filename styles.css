@@ -1,0 +1,249 @@
+:root {
+    --primary-dark: #1e293b;
+    --primary-accent: #3b82f6;
+    --text-main: #334155;
+    --text-light: #f8fafc;
+    --bg-page: #ffffff;
+    --bg-viewer: #525659;
+
+    /* STRUCTURE DIMENSIONS */
+    --sidebar-width: 270px;
+    --page-width: 210mm;       /* A4 */
+    --page-min-height: 297mm;  /* A4 */
+
+    /* SPACINGS */
+    --spacing-xs: 5px;
+    --spacing-sm: 15px;
+    --spacing-md: 25px;
+    --spacing-lg: 35px;
+    --sidebar-padding: 30px 25px;
+    --main-padding: 35px 30px;
+
+    /* TAMAÑOS DE FUENTE */
+    --font-h1: 2rem;
+    --font-h2: 0.9rem;
+    --font-h3: 0.9rem;         /* Sidebar titles */
+    --font-h4: 0.8rem;         /* Project titles */
+    --font-base: 0.85rem;      /* Generic text */
+    --font-small: 0.8rem;      /* Dates & details */
+    --line-height: 1.35;
+
+    /* FONT */
+    --font-main: 'Inter', sans-serif;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-main);
+    background: var(--bg-viewer);
+    line-height: var(--line-height);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- 2. LAYOUT A4 --- */
+.cv-container {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr; 
+    width: var(--page-width);
+    min-height: var(--page-min-height);
+    margin: 40px auto;
+    background: var(--bg-page);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    overflow: visible; 
+}
+
+/* --- 3. SIDEBAR --- */
+.sidebar {
+    background: var(--primary-dark);
+    color: var(--text-light);
+    padding: var(--sidebar-padding);
+}
+
+.sidebar section { 
+    margin-bottom: var(--spacing-lg);
+    break-inside: avoid; 
+    page-break-inside: avoid;
+}
+
+.sidebar a { color: var(--text-light); text-decoration: none; }
+
+.sidebar h3 { 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    margin-bottom: var(--spacing-sm); 
+    font-size: var(--font-h3);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: var(--spacing-xs);
+}
+
+.sidebar h4 {
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+}
+
+.contact-details ul li { 
+    margin-bottom: 6px; 
+    font-size: var(--font-base); 
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span {
+    background: rgba(255,255,255,0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: var(--font-small);
+}
+
+.profile-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+.profile-photo img {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+/* --- 4. MAIN CONTENT --- */
+.main-content {
+    padding: var(--main-padding);
+}
+
+.main-header { 
+    margin-bottom: var(--spacing-md); 
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: var(--spacing-sm);
+}
+.main-header h1 { 
+    font-size: var(--font-h1); 
+    color: var(--primary-dark); 
+    line-height: 1; 
+    margin-bottom: var(--spacing-xs); 
+}
+.main-header h2 { 
+    color: var(--primary-accent); 
+    font-size: var(--font-h2); 
+    font-weight: 500; 
+}
+.summary { 
+    font-size: 0.9rem; 
+    margin-top: 10px; 
+    color: #555; 
+    text-align: justify; 
+}
+
+.section-title {
+    font-size: var(--font-h3);
+    text-transform: uppercase;
+    color: var(--primary-dark);
+    border-left: 4px solid var(--primary-accent);
+    padding-left: 10px;
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+
+    break-after: avoid; 
+    page-break-after: avoid;
+}
+
+.project-card, .job-card { 
+    margin-bottom: 18px;
+
+    break-inside: avoid; 
+    page-break-inside: avoid;
+}
+
+.project-head, .job-head { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: baseline; 
+}
+.project-head h4, .job-head h4 { 
+    font-size: var(--font-h4); 
+    font-weight: 700; 
+    color: #333; 
+}
+
+.github-link, .job-date { 
+    font-size: var(--font-small); 
+    color: #666; 
+}
+.github-link { 
+    text-decoration: underline; 
+    color: var(--primary-accent); 
+}
+
+.tech-stack, .company-name { 
+    font-size: var(--font-base); 
+    color: var(--primary-accent); 
+    font-weight: 600; 
+    margin-bottom: 4px; 
+}
+
+ul { list-style: none; }
+.project-card li, .job-card li {
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 2px;
+    font-size: var(--font-base);
+    color: #444;
+}
+.project-card li::before, .job-card li::before {
+    content: "•";
+    color: var(--primary-accent);
+    position: absolute; left: 0; font-weight: bold;
+}
+
+/* --- 5. RESPONSIVE & PRINT --- */
+
+@media screen and (max-width: 768px) {
+    .cv-container { 
+        grid-template-columns: 1fr; 
+        width: 100%; 
+        height: auto; 
+    }
+    .sidebar { text-align: center; }
+    .tags { justify-content: center; }
+}
+
+@media print {
+    @page {
+        margin: 0;
+        size: auto; 
+    }
+
+    body { 
+        background: white; 
+        -webkit-print-color-adjust: exact; 
+        print-color-adjust: exact; 
+    }
+
+    .cv-container {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: 100vh;
+        display: grid;
+        height: auto; 
+    }
+
+    .sidebar, .main-content {
+        height: 100%;
+    }
+
+    /* Ocultar enlaces URL si lo prefieres */
+    a { text-decoration: none; color: inherit; }
+    
+    /* Forzar salto de página limpio si es necesario antes de secciones críticas (opcional) */
+    /* .force-break { page-break-before: always; } */
+}
